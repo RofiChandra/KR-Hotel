@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+    <meta charset="UTF-8"/>
+    <title>Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#03a6f3"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+        <body>
+    
+            <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3"><a href="#" class="web-url">KR HOTEL</a></div>
+                    <div class="col-md-6">
+                        <h5>THE BEST HOTEL IN JAKARTA</h5></div>
+                    <div class="col-md-3">
+                        <span class="ph-number">TELP : (021)-4563245812</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-menu">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="index.html"><img src="images/KRHotel.PNG" width="250" height="150" alt="logo"/></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="navbar-item active">
+                                <a href="homepage.xhtml" class="nav-link">Home</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="homepage.xhtml" class="nav-link">Room</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="about_us.xhtml" class="nav-link">About Us</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="login.xhtml" class="nav-link">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+            
+    <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="homepage.xhtml">Home</a>
+            <span class="breadcrumb-item active">Admin Page</span>
+        </div>
+    </div>
+            <h2 style="text-align: center;">Data Room </h2>
+            <h:dataTable  border="1" bgcolor="orange" cellpadding="0" cellspacing="0"  value="#{tblRoom.getAllRecords()}" var="admin" style="text-align: center; margin: auto;">
+            <h:column>
+                <f:facet name="header">id Room </f:facet>
+                #{admin.idRoom}
+            </h:column>
+            <h:column>
+                <f:facet name="header"> nama room </f:facet>
+                #{admin.namaRoom}
+            </h:column>
+            <h:column>
+                <f:facet name="header"> type room </f:facet>
+                #{admin.type}
+            </h:column>
+            <h:column>
+                <f:facet name="header"> price room </f:facet>
+                #{admin.price}
+            </h:column>
+        </h:dataTable>
+        <hr/>
+        <div style="margin-left: 450px;">
+        <h:form>
+            
+            ID Room <h:inputText value="#{tblRoom.idRoom}"/>&nbsp;
+            <h:commandButton value="Search.." action="#{tblRoom.getById()}"/>
+        <hr/>
+        Nama Room  <h:inputText value="#{tblRoom.namaRoom}"/><br/>
+        Type       <h:inputText value="#{tblRoom.type}"/><br/>
+        Price      <h:inputText value="#{tblRoom.price}"/><br/><br/>
+        <h:commandButton value="edit" action="#{tblRoom.edit()}"/>&nbsp;<h:commandButton value="delete" action="#{tblRoom.delete()}"/>&nbsp;<h:commandButton value="add" action="#{tblRoom.save_room()}"/>
+        </h:form>
+        </div>
+            <footer>
+                <ui:include src="footer.xhtml"/>
+            </footer>
+        </body>
+    </h:body>
+</html>
+

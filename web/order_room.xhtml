@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <ui:include src="header.xhtml"/>
+        <meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>Order</title>
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet"/>
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min1.css" />
+	<link type="text/css" rel="stylesheet" href="css/style1.css" />
+    <title>
+        Order Room
+    </title>
+    </h:head>
+    <h:body>
+      <body>
+          <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3"><a href="#" class="web-url">KR HOTEL</a></div>
+                    <div class="col-md-6">
+                        <h5>THE BEST HOTEL IN JAKARTA</h5></div>
+                    <div class="col-md-3">
+                        <span class="ph-number">TELP : (021)-4563245812</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+          </header>
+              <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="homepage.xhtml">Home</a>
+            <span class="breadcrumb-item active">Order Room</span>
+        </div>
+    </div>
+          
+          <h2 style="text-align: center;">List Room </h2>
+            <h:dataTable  border="1" cellpadding="0" cellspacing="0"  value="#{tblRoom.getAllRecords()}" var="admin" style="text-align: center; margin: auto;">
+            <h:column>
+                <f:facet name="header">No Room </f:facet>
+                #{admin.idRoom}
+            </h:column>
+            <h:column>
+                <f:facet name="header"> nama room </f:facet>
+                #{admin.namaRoom}
+            </h:column>
+            <h:column>
+                <f:facet name="header"> type room </f:facet>
+                #{admin.type}
+            </h:column>
+            <h:column>
+                <f:facet name="header"> price room </f:facet>
+                #{admin.price}
+            </h:column>
+                
+        </h:dataTable>
+          <hr/>
+          <div style="margin-left: 450px">
+          <h:form>
+              Nama Lengkap <h:inputText value="#{tblOrder.namaUser}"/><br/>
+            ID Room <h:inputText value="#{tblRoom.idRoom}"/>&nbsp;
+            <h:commandButton value="Search.." action="#{tblRoom.getById2()}"/>
+        <hr/>
+        
+        Nama Room  <h:selectOneMenu value="#{tblOrder.idRoom}" class="dropdown">
+            <f:selectItems value="#{tblOrder.allRoom}" class="dropdown--item"/>
+                                        </h:selectOneMenu>
+        <hr/>
+        <h:outputText value="Check In" style="margin-left: 100px;"></h:outputText><br/>
+        Tanggal    <h:inputText value="#{tblOrder.tanggal}"/><br/>
+        Bulan       <h:inputText value="#{tblOrder.bulan}"/><br/>
+        Tahun      <h:inputText value="#{tblOrder.tahun}"/><br/>
+        <hr/>
+        <h:outputText value="Check Out" style="margin-left: 100px;"></h:outputText><br/>
+        Tanggal    <h:inputText value="#{tblOrder.tanggal}"/><br/>
+        Bulan       <h:inputText value="#{tblOrder.bulan}"/><br/>
+        Tahun      <h:inputText value="#{tblOrder.tahun}"/><br/>
+        <h:commandButton value="Book" action="#{tblOrder.save_order()}"/>
+        </h:form>
+          </div>
+        <footer>
+                <ui:include src="footer.xhtml"/>
+         </footer>
+        </body>
+    </h:body>
+</html>

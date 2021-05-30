@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <ui:include src="layouts/headerlogin.xhtml"/>
+        
+    </h:head>
+    <h:body>
+    <body>
+        <ui:include src="layouts/navbar.xhtml"/>
+        
+    <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="index.xhtml">Home</a>
+            <span class="breadcrumb-item active">Login</span>
+        </div>
+    </div>
+    <section class="static about-sec">
+        <div class="container">
+            <h1>My Account / Login</h1>
+            <p></p>
+            <div class="form">
+                <h:form>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h:inputText a:placeholder="Enter User Name" value="#{tblAdmin.username}"/>
+                            <span class="required-star">*</span>
+                        </div>
+                        <div class="col-md-4">
+                            <h:inputSecret  a:placeholder="Password" value="#{tblAdmin.password}"/>
+                            <span class="required-star">*</span>
+                        </div>
+                        <div class="col-lg-8 col-md-12">
+                            <h:commandButton class="btn black" value="Login" action="#{tblAdmin.login_user()}"></h:commandButton>
+                            <h5>Your username or password is incorrect</h5>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </section>
+        <footer>
+            <ui:include src="footer.xhtml"/>
+        </footer>
+        
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+    <script src="js/custom.js"></script>
+        
+    </body>
+    </h:body>
+</html>
+

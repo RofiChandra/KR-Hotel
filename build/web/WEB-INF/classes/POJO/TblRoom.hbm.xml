@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 26, 2020 5:52:25 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJO.TblRoom" table="tbl_room" catalog="projekhotel1" optimistic-lock="version">
+        <id name="idRoom" type="java.lang.Integer">
+            <column name="id_room" />
+            <generator class="identity" />
+        </id>
+        <property name="namaRoom" type="string">
+            <column name="nama_room" length="25" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="20" />
+        </property>
+        <property name="price" type="java.lang.Long">
+            <column name="price" />
+        </property>
+    </class>
+</hibernate-mapping>
